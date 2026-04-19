@@ -19,7 +19,11 @@
     "commands",
     "productivity"
   ],
-  "homepage": "https://github.com/rahuldhole/context-bar#readme",
+  "homepage": "http://context-bar.rahuldhole.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rahuldhole/context-bar.git"
+  },
   "bugs": {
     "url": "https://github.com/rahuldhole/context-bar/issues"
   },
@@ -33,10 +37,6 @@
   },
   "engines": {
     "vscode": "^1.75.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rahuldhole/context-bar.git"
   },
   "categories": [
     "Other"
