@@ -29,6 +29,11 @@
     "configuration": {
       "title": "Context Bar",
       "properties": {
+        "context-bar.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Global toggle to enable or disable the Context Bar buttons."
+        },
         "tabTools.actions": {
           "type": "array",
           "markdownDescription": "Map VS Code commands and shortcuts to buttons in the editor title bar.",
