@@ -27,7 +27,7 @@
       "properties": {
         "tabTools.actions": {
           "type": "array",
-          "description": "Custom actions to show in the editor title bar",
+          "markdownDescription": "Configure dynamic action buttons for the editor title bar. Use the section below to add, edit, or remove actions based on context rules.\n\n### Available Rules\n- `editorLangId`: Language of the file (e.g. `'markdown'`)\n- `fileExt`: File extension (e.g. `'py'`)\n- `isDirty`: Unsaved changes state\n- `selectionEmpty`: Text selection state",
           "default": [
             {
               "id": "markdown.preview",
@@ -35,30 +35,48 @@
               "command": "markdown.showPreviewToSide",
               "icon": "preview",
               "when": "editorLangId == 'markdown'"
-            },
-            {
-              "id": "json.format",
-              "title": "Format",
-              "command": "editor.action.formatDocument",
-              "icon": "format",
-              "when": "editorLangId == 'json'"
             }
           ],
           "items": {
             "type": "object",
             "properties": {
-              "id": { "type": "string" },
-              "title": { "type": "string" },
-              "command": { "type": "string" },
-              "icon": { "type": "string", "enum": ["preview", "format", "play", "debug", "test", "sync", "trash", "save", "book", "bug", "zap", "gear"] },
-              "when": { "type": "string" },
-              "priority": { "type": "number" }
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for this action"
+              },
+              "title": {
+                "type": "string",
+                "description": "Tooltip and display name for the action"
+              },
+              "command": {
+                "type": "string",
+                "description": "Internal VS Code command ID to execute (e.g., 'editor.action.formatDocument')"
+              },
+              "icon": {
+                "type": "string",
+                "enum": ["preview", "format", "play", "debug", "test", "sync", "trash", "save", "book", "bug", "zap", "gear"],
+                "description": "The icon to display in the title bar"
+              },
+              "when": {
+                "type": "string",
+                "markdownDescription": "Boolean expression that determines when to show this action. Examples:\n- `editorLangId == 'python'`\n- `fileExt == 'ts' && !selectionEmpty`"
+              },
+              "priority": {
+                "type": "number",
+                "default": 0,
+                "description": "The display order (higher numbers appear first)"
+              }
             }
           }
         }
       }
     },
     "commands": [
+      {
+        "command": "context-bar.configure",
+        "title": "Context Bar: Configure Actions",
+        "category": "Context Bar"
+      },
       { "command": "context-bar.slot.preview.1", "title": "Preview", "icon": "$(eye)" },
       { "command": "context-bar.slot.preview.2", "title": "Preview", "icon": "$(eye)" },
       { "command": "context-bar.slot.format.1", "title": "Format", "icon": "$(checklist)" },

@@ -6,6 +6,13 @@ export function activate(context: vscode.ExtensionContext) {
   const contextManager = new ContextManager();
   const actionEngine = new ActionEngine();
 
+  // Register the configuration command
+  context.subscriptions.push(
+    vscode.commands.registerCommand('context-bar.configure', () => {
+      vscode.commands.executeCommand('workbench.action.openSettings', 'tabTools.actions');
+    })
+  );
+
   // Supported icons list (must match package.json)
   const supportedIcons = [
     'preview', 'format', 'play', 'debug', 'test', 'sync',
