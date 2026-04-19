@@ -1,7 +1,7 @@
 {
   "name": "context-bar",
   "displayName": "Context Bar",
-  "description": "Context-aware, user-configurable action buttons in the editor title area",
+  "description": "Trigger VS Code shortcuts and commands directly from your editor title bar",
   "version": "0.1.0",
   "publisher": "rahuldhole",
   "scripts": {
@@ -31,93 +31,91 @@
       "properties": {
         "tabTools.actions": {
           "type": "array",
-          "markdownDescription": "Configure dynamic action buttons for the editor title bar. Use the section below to add, edit, or remove actions based on context rules.\n\n### Available Rules\n- `editorLangId`: Language of the file (e.g. `'markdown'`)\n- `fileExt`: File extension (e.g. `'py'`)\n- `isDirty`: Unsaved changes state\n- `selectionEmpty`: Text selection state",
-          "default": [
-            {
-              "id": "markdown.preview",
-              "title": "Preview",
-              "command": "markdown.showPreviewToSide",
-              "icon": "preview",
-              "when": "editorLangId == 'markdown'"
-            }
-          ],
+          "markdownDescription": "Map VS Code commands and shortcuts to buttons in the editor title bar.",
           "items": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "string",
-                "description": "Unique identifier for this action"
-              },
-              "title": {
-                "type": "string",
-                "description": "Tooltip and display name for the action"
-              },
-              "command": {
-                "type": "string",
-                "description": "Internal VS Code command ID to execute (e.g., 'editor.action.formatDocument')"
-              },
-              "icon": {
-                "type": "string",
-                "enum": ["preview", "format", "play", "debug", "test", "sync", "trash", "save", "book", "bug", "zap", "gear"],
-                "description": "The icon to display in the title bar"
-              },
-              "when": {
-                "type": "string",
-                "markdownDescription": "Boolean expression that determines when to show this action. Examples:\n- `editorLangId == 'python'`\n- `fileExt == 'ts' && !selectionEmpty`"
-              },
-              "priority": {
-                "type": "number",
-                "default": 0,
-                "description": "The display order (higher numbers appear first)"
-              }
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "command": { "type": "string" },
+              "icon": { "type": "string" },
+              "when": { "type": "string" },
+              "priority": { "type": "number", "default": 0 }
             }
           }
         }
       }
     },
     "commands": [
-      {
-        "command": "context-bar.configure",
-        "title": "Context Bar: Configure Actions",
-        "category": "Context Bar"
-      },
-      { "command": "context-bar.slot.preview.1", "title": "Preview", "icon": "$(eye)" },
-      { "command": "context-bar.slot.preview.2", "title": "Preview", "icon": "$(eye)" },
-      { "command": "context-bar.slot.format.1", "title": "Format", "icon": "$(checklist)" },
-      { "command": "context-bar.slot.format.2", "title": "Format", "icon": "$(checklist)" },
-      { "command": "context-bar.slot.play.1", "title": "Run", "icon": "$(play)" },
-      { "command": "context-bar.slot.play.2", "title": "Run", "icon": "$(play)" },
-      { "command": "context-bar.slot.debug.1", "title": "Debug", "icon": "$(debug-start)" },
-      { "command": "context-bar.slot.debug.2", "title": "Debug", "icon": "$(debug-start)" },
-      { "command": "context-bar.slot.test.1", "title": "Test", "icon": "$(beaker)" },
-      { "command": "context-bar.slot.test.2", "title": "Test", "icon": "$(beaker)" },
-      { "command": "context-bar.slot.sync.1", "title": "Sync", "icon": "$(sync)" },
-      { "command": "context-bar.slot.trash.1", "title": "Delete", "icon": "$(trash)" },
-      { "command": "context-bar.slot.save.1", "title": "Save", "icon": "$(save)" },
-      { "command": "context-bar.slot.book.1", "title": "Docs", "icon": "$(book)" },
-      { "command": "context-bar.slot.bug.1", "title": "Issues", "icon": "$(bug)" },
-      { "command": "context-bar.slot.zap.1", "title": "Flash", "icon": "$(zap)" },
-      { "command": "context-bar.slot.gear.1", "title": "Settings", "icon": "$(gear)" }
+      { "command": "context-bar.configure", "title": "Context Bar: Configure Shortcuts", "category": "Context Bar" },
+      
+      { "command": "context-bar.slot.play.1", "title": "Trigger", "icon": "$(play)" },
+      { "command": "context-bar.slot.play.2", "title": "Trigger", "icon": "$(play)" },
+      { "command": "context-bar.slot.debug-start.1", "title": "Trigger", "icon": "$(debug-start)" },
+      { "command": "context-bar.slot.eye.1", "title": "Trigger", "icon": "$(eye)" },
+      { "command": "context-bar.slot.eye.2", "title": "Trigger", "icon": "$(eye)" },
+      { "command": "context-bar.slot.checklist.1", "title": "Trigger", "icon": "$(checklist)" },
+      { "command": "context-bar.slot.sync.1", "title": "Trigger", "icon": "$(sync)" },
+      { "command": "context-bar.slot.trash.1", "title": "Trigger", "icon": "$(trash)" },
+      { "command": "context-bar.slot.save.1", "title": "Trigger", "icon": "$(save)" },
+      { "command": "context-bar.slot.book.1", "title": "Trigger", "icon": "$(book)" },
+      { "command": "context-bar.slot.bug.1", "title": "Trigger", "icon": "$(bug)" },
+      { "command": "context-bar.slot.zap.1", "title": "Trigger", "icon": "$(zap)" },
+      { "command": "context-bar.slot.gear.1", "title": "Trigger", "icon": "$(gear)" },
+      { "command": "context-bar.slot.search.1", "title": "Trigger", "icon": "$(search)" },
+      { "command": "context-bar.slot.refresh.1", "title": "Trigger", "icon": "$(refresh)" },
+      { "command": "context-bar.slot.edit.1", "title": "Trigger", "icon": "$(edit)" },
+      { "command": "context-bar.slot.list-unordered.1", "title": "Trigger", "icon": "$(list-unordered)" },
+      { "command": "context-bar.slot.symbol-method.1", "title": "Trigger", "icon": "$(symbol-method)" },
+      { "command": "context-bar.slot.symbol-class.1", "title": "Trigger", "icon": "$(symbol-class)" },
+      { "command": "context-bar.slot.new-file.1", "title": "Trigger", "icon": "$(new-file)" },
+      { "command": "context-bar.slot.new-folder.1", "title": "Trigger", "icon": "$(new-folder)" },
+      { "command": "context-bar.slot.diff.1", "title": "Trigger", "icon": "$(diff)" },
+      { "command": "context-bar.slot.git-commit.1", "title": "Trigger", "icon": "$(git-commit)" },
+      { "command": "context-bar.slot.terminal.1", "title": "Trigger", "icon": "$(terminal)" },
+      { "command": "context-bar.slot.graph.1", "title": "Trigger", "icon": "$(graph)" },
+      { "command": "context-bar.slot.database.1", "title": "Trigger", "icon": "$(database)" },
+      { "command": "context-bar.slot.cloud.1", "title": "Trigger", "icon": "$(cloud)" },
+      { "command": "context-bar.slot.lock.1", "title": "Trigger", "icon": "$(lock)" },
+      { "command": "context-bar.slot.unlock.1", "title": "Trigger", "icon": "$(unlock)" },
+      { "command": "context-bar.slot.home.1", "title": "Trigger", "icon": "$(home)" },
+      { "command": "context-bar.slot.mail.1", "title": "Trigger", "icon": "$(mail)" },
+      { "command": "context-bar.slot.bell.1", "title": "Trigger", "icon": "$(bell)" }
     ],
     "menus": {
       "editor/title": [
-        { "command": "context-bar.slot.preview.1", "when": "context-bar.slot.preview.1.visible", "group": "navigation" },
-        { "command": "context-bar.slot.preview.2", "when": "context-bar.slot.preview.2.visible", "group": "navigation" },
-        { "command": "context-bar.slot.format.1", "when": "context-bar.slot.format.1.visible", "group": "navigation" },
-        { "command": "context-bar.slot.format.2", "when": "context-bar.slot.format.2.visible", "group": "navigation" },
         { "command": "context-bar.slot.play.1", "when": "context-bar.slot.play.1.visible", "group": "navigation" },
         { "command": "context-bar.slot.play.2", "when": "context-bar.slot.play.2.visible", "group": "navigation" },
-        { "command": "context-bar.slot.debug.1", "when": "context-bar.slot.debug.1.visible", "group": "navigation" },
-        { "command": "context-bar.slot.debug.2", "when": "context-bar.slot.debug.2.visible", "group": "navigation" },
-        { "command": "context-bar.slot.test.1", "when": "context-bar.slot.test.1.visible", "group": "navigation" },
-        { "command": "context-bar.slot.test.2", "when": "context-bar.slot.test.2.visible", "group": "navigation" },
+        { "command": "context-bar.slot.debug-start.1", "when": "context-bar.slot.debug-start.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.eye.1", "when": "context-bar.slot.eye.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.eye.2", "when": "context-bar.slot.eye.2.visible", "group": "navigation" },
+        { "command": "context-bar.slot.checklist.1", "when": "context-bar.slot.checklist.1.visible", "group": "navigation" },
         { "command": "context-bar.slot.sync.1", "when": "context-bar.slot.sync.1.visible", "group": "navigation" },
         { "command": "context-bar.slot.trash.1", "when": "context-bar.slot.trash.1.visible", "group": "navigation" },
         { "command": "context-bar.slot.save.1", "when": "context-bar.slot.save.1.visible", "group": "navigation" },
         { "command": "context-bar.slot.book.1", "when": "context-bar.slot.book.1.visible", "group": "navigation" },
         { "command": "context-bar.slot.bug.1", "when": "context-bar.slot.bug.1.visible", "group": "navigation" },
         { "command": "context-bar.slot.zap.1", "when": "context-bar.slot.zap.1.visible", "group": "navigation" },
-        { "command": "context-bar.slot.gear.1", "when": "context-bar.slot.gear.1.visible", "group": "navigation" }
+        { "command": "context-bar.slot.gear.1", "when": "context-bar.slot.gear.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.search.1", "when": "context-bar.slot.search.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.refresh.1", "when": "context-bar.slot.refresh.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.edit.1", "when": "context-bar.slot.edit.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.list-unordered.1", "when": "context-bar.slot.list-unordered.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.symbol-method.1", "when": "context-bar.slot.symbol-method.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.symbol-class.1", "when": "context-bar.slot.symbol-class.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.new-file.1", "when": "context-bar.slot.new-file.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.new-folder.1", "when": "context-bar.slot.new-folder.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.diff.1", "when": "context-bar.slot.diff.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.git-commit.1", "when": "context-bar.slot.git-commit.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.terminal.1", "when": "context-bar.slot.terminal.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.graph.1", "when": "context-bar.slot.graph.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.database.1", "when": "context-bar.slot.database.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.cloud.1", "when": "context-bar.slot.cloud.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.lock.1", "when": "context-bar.slot.lock.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.unlock.1", "when": "context-bar.slot.unlock.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.home.1", "when": "context-bar.slot.home.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.mail.1", "when": "context-bar.slot.mail.1.visible", "group": "navigation" },
+        { "command": "context-bar.slot.bell.1", "when": "context-bar.slot.bell.1.visible", "group": "navigation" }
       ]
     }
   },

@@ -14,25 +14,26 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 
-  // Supported icons list (must match package.json)
-  const supportedIcons = [
-    'preview', 'format', 'play', 'debug', 'test', 'sync',
-    'trash', 'save', 'book', 'bug', 'zap', 'gear',
-    'markdown', 'json', 'python', 'javascript', 'typescript'
+  const icons = [
+    'play', 'debug-start', 'eye', 'checklist', 'sync', 'trash', 'save', 'book', 'bug', 'zap', 
+    'gear', 'search', 'refresh', 'edit', 'list-unordered', 'symbol-method', 'symbol-class', 
+    'new-file', 'new-folder', 'diff', 'git-commit', 'terminal', 'graph', 'database', 'cloud', 
+    'lock', 'unlock', 'home', 'mail', 'bell'
   ];
 
-  // Register command handlers for slots
-  for (const icon of supportedIcons) {
-    for (let i = 1; i <= 3; i++) { // Support up to 3 instances of same icon
+  // Register all slots
+  for (const icon of icons) {
+    for (let i = 1; i <= 2; i++) { // Support up to 2 instances of each icon
       const slotId = `context-bar.slot.${icon}.${i}`;
       context.subscriptions.push(
         vscode.commands.registerCommand(slotId, async () => {
           const targetCommand = actionEngine.getActionForSlot(slotId);
           if (targetCommand) {
             try {
+              // Trigger the shortcut command
               await vscode.commands.executeCommand(targetCommand);
             } catch (err) {
-              vscode.window.showErrorMessage(`Failed to execute command ${targetCommand}: ${err}`);
+              vscode.window.showErrorMessage(`Action failed: ${err}`);
             }
           }
         })
@@ -43,9 +44,9 @@ export function activate(context: vscode.ExtensionContext) {
   // Update context and actions on change
   context.subscriptions.push(
     contextManager.onContextChanged(ctx => {
-      // Clear all slots first (brute force for now, can be optimized)
-      for (const icon of supportedIcons) {
-        for (let i = 1; i <= 3; i++) {
+      // Hide all possible slots first
+      for (const icon of icons) {
+        for (let i = 1; i <= 2; i++) {
           vscode.commands.executeCommand('setContext', `context-bar.slot.${icon}.${i}.visible`, false);
         }
       }

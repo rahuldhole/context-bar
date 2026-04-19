@@ -4,93 +4,51 @@
   <img src="./assets/hero.png" alt="Context Bar Hero" width="100%">
 </p>
 
-## ✨ The Editor Bar, Reimagined.
+## ⌨️ Your Shortcuts, on the Tab Bar.
 
-**Context Bar** is a premium Visual Studio Code extension that brings **context-aware, user-configurable action buttons** to your editor's title area. Stop hunting through menus or remembering dozens of shortcuts—get exactly the tools you need, exactly when you need them.
+**Context Bar** is a minimalist VS Code extension that lets you trigger your favorite shortcuts and commands directly from the editor title bar. 
 
----
-
-## 🚀 Key Features
-
-- **🧠 Intelligent Context Detection**: Buttons appear and disappear dynamically based on the file type, selection state, and workspace conditions.
-- **🎨 User-Configurable Actions**: Define your own workflows in `settings.json`. Map any VSCode command to a sleek icon.
-- **⚡ Zero UI Lag**: Optimized to recompute context in under 50ms, ensuring a fluid typing and navigating experience.
-- **🛠 Universal Slot System**: Leverages a high-performance slot registry to provide custom icons without the overhead of heavy UI frameworks.
+No more memorizing complex key combinations for every language. Just map any VS Code command to a native Codicon and set it to appear exactly when you need it.
 
 ---
 
-## 🛠 How It Works
+## 🛠 Features
 
-Context Bar monitors your active editor in real-time. By evaluating custom `when` rules, it dynamically assigns your configured commands to a pool of pre-registered **Action Slots** in the editor's title bar.
+- **Trigger Anything**: Map any VS Code command ID (e.g., `workbench.action.terminal.toggleTerminal`) to a button.
+- **Context Aware**: Buttons appear based on the file type you are currently editing.
+- **Native Look**: Configuration UI that matches VS Code's built-in settings style.
+- **30+ Icons**: Support for all common VS Code Codicons (`play`, `diff`, `terminal`, `git`, etc.).
 
-### 🖱 Premium Builder UI
+---
 
-You don't need to manually edit JSON files or learn complex context rules. To configure your bar:
+## 🏗 Configuration
+
+The extension includes a **Simple Builder** to help you map your commands visually.
+
 1. Open the **Command Palette** (`Ctrl+Shift+P`).
-2. Search for **"Context Bar: Configure Actions"**.
-3. Use the **Context Bar Builder**—a custom-built GUI powered by Vue.js and Tailwind CSS—to pick icons and build rules visually.
+2. Search for **"Context Bar: Configure Shortcuts"**.
+3. Add your commands, pick an icon, and optionally restrict it to a specific language.
 
-### Example Rules
-
-While you can use the GUI, here is how the logic looks under the hood:
+### Example Mapping
 
 ```json
 {
-  "tabTools.actions": [
-    {
-      "id": "markdown.preview",
-      "title": "Open Preview",
-      "command": "markdown.showPreviewToSide",
-      "icon": "preview",
-      "when": "editorLangId == 'markdown'"
-    },
-    {
-      "id": "json.format",
-      "title": "Format Document",
-      "command": "editor.action.formatDocument",
-      "icon": "format",
-      "when": "editorLangId == 'json'"
-    },
-    {
-      "id": "run.python",
-      "title": "Run Script",
-      "command": "python.execInTerminal",
-      "icon": "play",
-      "when": "fileExt == 'py' && !selectionEmpty"
-    }
-  ]
+  "id": "run-python",
+  "title": "Run in Terminal",
+  "command": "python.execInTerminal",
+  "icon": "play",
+  "when": "editorLangId == 'python'"
 }
 ```
 
 ---
 
-## 🔍 Supported Icons & Logic
+## 🔍 Why Context Bar?
 
-### 🔘 Iconic Slots
-Choose from a curated set of high-visibility icons:
-`preview` • `format` • `play` • `debug` • `test` • `sync` • `trash` • `save` • `book` • `bug` • `zap` • `gear`
-
-### 🧪 Advanced Rule Engine
-The `when` clause supports powerful variables to fine-tune your bar:
-- `editorLangId`: Language of the file (e.g., `'typescript'`)
-- `fileName`: Full path evaluation
-- `fileExt`: Extension pattern matching (e.g., `'md'`)
-- `isDirty`: React to unsaved changes
-- `isUntitled`: Target new buffers
-- `selectionEmpty`: Show actions only when text is (or isn't) selected
-
----
-
-## 📦 Installation
-
-1. Open **VSCode**
-2. Go to **Extensions** (`Ctrl+Shift+X`)
-3. Search for **Context Bar**
-4. Click **Install**
-5. Start configuring your dream workflow!
+VS Code's title bar is often underutilized. **Context Bar** turns it into a context-sensitive dashboard for your most frequent tasks—whether it's formatting, running tests, or jumping to specific views—without the "shiny" overhead of complex UI builders.
 
 ---
 
 <p align="center">
-  Built with ❤️ for the Developer Community.
+  Simple. Custom. Native.
 </p>
