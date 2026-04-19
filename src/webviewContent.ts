@@ -183,7 +183,7 @@ export function getWebviewContent(config: any): string {
                     }, 500);
                 };
 
-                return { actions, supportedIcons, pickerIdx, searchIdx, addAction, filteredSuggestions, applySuggestion, hideSearch, setIcon, save };
+                return { actions, supportedIcons, pickerIdx, searchIdx, saveState, addAction, filteredSuggestions, applySuggestion, hideSearch, setIcon, save };
             }
         }).mount('#app');
     </script>
