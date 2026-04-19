@@ -4,51 +4,43 @@
   <img src="./assets/hero.png" alt="Context Bar Hero" width="100%">
 </p>
 
-## ⌨️ Your Shortcuts, on the Tab Bar.
+## ⌨️ Pin Your Favorite Shortcuts.
 
-**Context Bar** is a minimalist VS Code extension that lets you trigger your favorite shortcuts and commands directly from the editor title bar. 
-
-No more memorizing complex key combinations for every language. Just map any VS Code command to a native Codicon and set it to appear exactly when you need it.
+**Context Bar** turns your editor title bar into a dashboard for your most essential keyboard shortcuts. Stop digging through menus—pin your most frequent tasks (like **Save**, **Format**, or **Terminal**) exactly where your eyes are already looking.
 
 ---
 
 ## 🛠 Features
 
-- **Trigger Anything**: Map any VS Code command ID (e.g., `workbench.action.terminal.toggleTerminal`) to a button.
-- **Context Aware**: Buttons appear based on the file type you are currently editing.
-- **Native Look**: Configuration UI that matches VS Code's built-in settings style.
-- **30+ Icons**: Support for all common VS Code Codicons (`play`, `diff`, `terminal`, `git`, etc.).
+- **Shortcut Focused**: Built-in support for common VS Code shortcuts (Ctrl+S, Ctrl+P, Ctrl+B, etc.).
+- **Smart Suggestions**: The builder GUI helps you find the right Command ID by searching for the keybinding you already know.
+- **Context Sensitive**: Buttons appear dynamically based on the file type (Markdown, Python, TypeScript, etc.).
+- **Native Aesthetic**: A simplified configuration UI that matches your VS Code theme perfectly.
 
 ---
 
-## 🏗 Configuration
-
-The extension includes a **Simple Builder** to help you map your commands visually.
+## 🏗 How to Configure
 
 1. Open the **Command Palette** (`Ctrl+Shift+P`).
 2. Search for **"Context Bar: Configure Shortcuts"**.
-3. Add your commands, pick an icon, and optionally restrict it to a specific language.
+3. Add a new action and type a shortcut (like "Ctrl+S") into the command field to see suggestions.
+4. Pick a Codicon and you're done!
 
-### Example Mapping
-
-```json
-{
-  "id": "run-python",
-  "title": "Run in Terminal",
-  "command": "python.execInTerminal",
-  "icon": "play",
-  "when": "editorLangId == 'python'"
-}
-```
+### Dynamic Rules
+You can set buttons to show only for specific files:
+- **Always Visible**: Visible for all editors.
+- **Language ID**: Only show for specific languages (e.g., `markdown`).
 
 ---
 
-## 🔍 Why Context Bar?
+## 🔍 Examples
 
-VS Code's title bar is often underutilized. **Context Bar** turns it into a context-sensitive dashboard for your most frequent tasks—whether it's formatting, running tests, or jumping to specific views—without the "shiny" overhead of complex UI builders.
+- **Markdown**: Pin `Ctrl+Shift+V` for a quick preview side-by-side.
+- **Python**: Pin `Shift+Enter` to run the current file in the terminal.
+- **General**: Pin `Alt+Shift+F` for a quick format button.
 
 ---
 
 <p align="center">
-  Simple. Custom. Native.
+  Your Shortcuts. One Click Away.
 </p>
