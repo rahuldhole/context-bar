@@ -77,8 +77,10 @@ export function getWebviewContent(config: any): string {
         .suggestion:hover { background: var(--vscode-button-background); color: var(--vscode-button-foreground); }
         .suggestion span.cmd { opacity: 0.5; font-family: monospace; }
 
-        .footer { margin-top: 40px; display: flex; justify-content: space-between; }
-        .btn-main { background: var(--vscode-button-background); color: var(--vscode-button-foreground); border: none; padding: 8px 20px; cursor: pointer; }
+        .footer { margin-top: 40px; display: flex; justify-content: space-between; align-items: center; }
+        .btn-main { background: var(--vscode-button-background); color: var(--vscode-button-foreground); border: none; padding: 8px 24px; cursor: pointer; border-radius: 2px; }
+        .btn-main:hover { background: var(--vscode-button-hoverBackground); }
+        .btn-main.success { background: #28a745 !important; color: white !important; }
         .btn-text { background: none; border: none; color: var(--vscode-textLink-foreground); cursor: pointer; }
     </style>
 </head>
@@ -87,7 +89,9 @@ export function getWebviewContent(config: any): string {
         <header>
             <h1>Context Actions</h1>
             <div>
-                <button class="btn-main" @click="save">Save & Apply</button>
+                <button :class="['btn-main', { success: saveState === 'saved' }]" @click="save" :disabled="saveState === 'saving'">
+                    {{ saveState === 'saved' ? 'Saved! ✅' : (saveState === 'saving' ? 'Saving...' : 'Save & Apply') }}
+                </button>
             </div>
         </header>
 
@@ -144,6 +148,7 @@ export function getWebviewContent(config: any): string {
                 const vscode = acquireVsCodeApi();
                 const pickerIdx = ref(-1);
                 const searchIdx = ref(-1);
+                const saveState = ref('ready'); // ready, saving, saved
                 const supportedIcons = ${JSON.stringify(supportedIcons)};
                 const suggestions = ${JSON.stringify(commonShortcuts)};
 
@@ -170,7 +175,12 @@ export function getWebviewContent(config: any): string {
                 };
 
                 const save = () => {
+                    saveState.value = 'saving';
                     vscode.postMessage({ type: 'save', actions: JSON.parse(JSON.stringify(actions.value)), enabled: true });
+                    setTimeout(() => {
+                        saveState.value = 'saved';
+                        setTimeout(() => { saveState.value = 'ready'; }, 2000);
+                    }, 500);
                 };
 
                 return { actions, supportedIcons, pickerIdx, searchIdx, addAction, filteredSuggestions, applySuggestion, hideSearch, setIcon, save };

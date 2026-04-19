@@ -37,6 +37,16 @@
         "tabTools.actions": {
           "type": "array",
           "markdownDescription": "Map VS Code commands and shortcuts to buttons in the editor title bar.",
+          "default": [
+            {
+              "id": "markdown.preview",
+              "title": "Preview",
+              "command": "markdown.showPreviewToSide",
+              "icon": "eye",
+              "exts": "md",
+              "enabled": true
+            }
+          ],
           "items": {
             "type": "object",
             "properties": {
@@ -44,7 +54,8 @@
               "title": { "type": "string" },
               "command": { "type": "string" },
               "icon": { "type": "string" },
-              "when": { "type": "string" },
+              "exts": { "type": "string" },
+              "enabled": { "type": "boolean", "default": true },
               "priority": { "type": "number", "default": 0 }
             }
           }
