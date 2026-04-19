@@ -78,5 +78,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made with ❤️ for the VS Code community.
+  Made with ❤️ by <a href="https://rahuldhole.com">Rahul Dhole</a>
 </p>
