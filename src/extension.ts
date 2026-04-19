@@ -23,14 +23,13 @@ export function activate(context: vscode.ExtensionContext) {
 
   // Register all slots
   for (const icon of icons) {
-    for (let i = 1; i <= 2; i++) { // Support up to 2 instances of each icon
+    for (let i = 1; i <= 2; i++) {
       const slotId = `context-bar.slot.${icon}.${i}`;
       context.subscriptions.push(
         vscode.commands.registerCommand(slotId, async () => {
           const targetCommand = actionEngine.getActionForSlot(slotId);
           if (targetCommand) {
             try {
-              // Trigger the shortcut command
               await vscode.commands.executeCommand(targetCommand);
             } catch (err) {
               vscode.window.showErrorMessage(`Action failed: ${err}`);
@@ -41,15 +40,9 @@ export function activate(context: vscode.ExtensionContext) {
     }
   }
 
-  // Update context and actions on change
+  // Update actions on context change
   context.subscriptions.push(
     contextManager.onContextChanged(ctx => {
-      // Hide all possible slots first
-      for (const icon of icons) {
-        for (let i = 1; i <= 2; i++) {
-          vscode.commands.executeCommand('setContext', `context-bar.slot.${icon}.${i}.visible`, false);
-        }
-      }
       actionEngine.refresh(ctx);
     })
   );
