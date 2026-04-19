@@ -4,6 +4,25 @@
   "description": "Trigger VS Code shortcuts and commands directly from your editor title bar",
   "version": "0.1.0",
   "publisher": "rahuldhole",
+  "icon": "assets/icon.png",
+  "author": {
+    "name": "Rahul Dhole"
+  },
+  "license": "MIT",
+  "keywords": [
+    "context",
+    "bar",
+    "shortcuts",
+    "editor",
+    "title",
+    "navigation",
+    "commands",
+    "productivity"
+  ],
+  "homepage": "https://github.com/rahuldhole/context-bar#readme",
+  "bugs": {
+    "url": "https://github.com/rahuldhole/context-bar/issues"
+  },
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",

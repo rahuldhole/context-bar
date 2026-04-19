@@ -47,9 +47,33 @@ No more memorizing complex key combinations. No more hunting through the Command
 
 ---
 
+## ⚙️ Extension Settings
+
+This extension contributes the following settings:
+
+* `context-bar.enabled`: Enable/disable all Context Bar buttons globally.
+* `tabTools.actions`: The list of configured shortcuts and their context rules.
+
+## 📋 Requirements
+
+* VS Code version 1.75.0 or higher.
+
+## 🐛 Known Issues
+
+* Some custom icons might not render correctly if the theme overrides VS Code's default Codicons.
+* Large numbers of buttons may crowd the editor title bar on smaller screens.
+
+---
+
 ## 🤝 Contributing
 
 We love contributions! If you have ideas for new features or icons, feel free to open an issue or a pull request on our [GitHub Repository](https://github.com/rahuldhole/context-bar).
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
