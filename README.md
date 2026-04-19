@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/visual-studio-marketplace/v/rahuldhole.context-bar?style=flat-square&color=0078d7" alt="Marketplace Version">
-  <img src="https://img.shields.io/visual-studio-marketplace/i/rahuldhole.context-bar?style=flat-square&color=0078d7" alt="Installs">
+  <img src="https://img.shields.io/visual-studio-marketplace/v/rahuldhole.context-bar-rd?style=flat-square&color=0078d7" alt="Marketplace Version">
+  <img src="https://img.shields.io/visual-studio-marketplace/i/rahuldhole.context-bar-rd?style=flat-square&color=0078d7" alt="Installs">
   <img src="https://img.shields.io/github/license/rahuldhole/context-bar?style=flat-square&color=0078d7" alt="License">
 </p>
 

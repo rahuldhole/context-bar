@@ -1,5 +1,5 @@
 {
-  "name": "context-bar",
+  "name": "context-bar-rd",
   "displayName": "Context Bar",
   "description": "Trigger VS Code shortcuts and commands directly from your editor title bar",
   "version": "0.1.0",
