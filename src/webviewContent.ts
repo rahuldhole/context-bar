@@ -33,6 +33,10 @@ export function getWebviewContent(config: any): string {
         header { margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
         h1 { font-size: 20px; font-weight: 300; margin: 0; }
         
+        .header-actions { display: flex; gap: 20px; align-items: center; }
+        .link-json { color: var(--vscode-textLink-foreground); cursor: pointer; font-size: 11px; opacity: 0.8; display: flex; align-items: center; gap: 4px; text-decoration: none; }
+        .link-json:hover { opacity: 1; text-decoration: underline; }
+        
         .action-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         .action-row { border-bottom: 1px solid var(--vscode-panel-border); }
         .action-row:hover { background: rgba(255,255,255,0.02); }
@@ -99,7 +103,13 @@ export function getWebviewContent(config: any): string {
 <body>
     <div id="app">
         <header>
-            <h1>Context Actions</h1>
+            <div style="display: flex; align-items: baseline; gap: 15px;">
+                <h1>Context Actions</h1>
+                <a class="link-json" @click="openJson">
+                    <span class="codicon codicon-code"></span>
+                    Edit JSON
+                </a>
+            </div>
             <div>
                 <button :class="['btn-main', { success: saveState === 'saved' }]" @click="save" :disabled="saveState === 'saving'">
                     {{ saveState === 'saved' ? 'Saved! ✅' : (saveState === 'saving' ? 'Saving...' : 'Save & Apply') }}
@@ -149,11 +159,7 @@ export function getWebviewContent(config: any): string {
         <div class="footer">
             <button class="btn-text" @click="addAction">+ Add Action</button>
             <div style="display: flex; gap: 15px; align-items: center;">
-                <button class="btn-text" @click="openJson" style="opacity: 0.6; font-size: 11px;">Edit JSON</button>
                 <button class="btn-reset" @click="resetConfig">Reset to Defaults</button>
-                <button :class="['btn-main', { success: saveState === 'saved' }]" @click="save" :disabled="saveState === 'saving'">
-                    {{ saveState === 'saved' ? 'Saved! ✅' : (saveState === 'saving' ? 'Saving...' : 'Save & Apply') }}
-                </button>
             </div>
         </div>
     </div>
