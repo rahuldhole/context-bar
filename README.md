@@ -1,8 +1,6 @@
 # Context Bar
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rahuldhole/context-bar/main/assets/hero.png" alt="Context Bar Hero" width="100%">
-</p>
+![Context Bar Hero](https://github.com/rahuldhole/context-bar/raw/main/assets/hero.png)
 
 <p align="center">
   <b>Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar.</b>
