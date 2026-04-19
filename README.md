@@ -1,4 +1,4 @@
-# Context Bar
+# Context Bar: Dynamic Shortcuts
 
 ![Context Bar Hero](https://github.com/rahuldhole/context-bar/raw/main/assets/hero.png)
 
