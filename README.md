@@ -1,46 +1,60 @@
 # Context Bar
 
 <p align="center">
-  <img src="./assets/hero.png" alt="Context Bar Hero" width="100%">
+  <img src="https://raw.githubusercontent.com/rahuldhole/context-bar/main/assets/hero.png" alt="Context Bar Hero" width="100%">
 </p>
 
-## ⌨️ Pin Your Favorite Shortcuts.
+<p align="center">
+  <b>Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar.</b>
+</p>
 
-**Context Bar** turns your editor title bar into a dashboard for your most essential keyboard shortcuts. Stop digging through menus—pin your most frequent tasks (like **Save**, **Format**, or **Terminal**) exactly where your eyes are already looking.
-
----
-
-## 🛠 Features
-
-- **Shortcut Focused**: Built-in support for common VS Code shortcuts (Ctrl+S, Ctrl+P, Ctrl+B, etc.).
-- **Smart Suggestions**: The builder GUI helps you find the right Command ID by searching for the keybinding you already know.
-- **Context Sensitive**: Buttons appear dynamically based on the file type (Markdown, Python, TypeScript, etc.).
-- **Native Aesthetic**: A simplified configuration UI that matches your VS Code theme perfectly.
+<p align="center">
+  <img src="https://img.shields.io/visual-studio-marketplace/v/rahuldhole.context-bar?style=flat-square&color=0078d7" alt="Marketplace Version">
+  <img src="https://img.shields.io/visual-studio-marketplace/i/rahuldhole.context-bar?style=flat-square&color=0078d7" alt="Installs">
+  <img src="https://img.shields.io/github/license/rahuldhole/context-bar?style=flat-square&color=0078d7" alt="License">
+</p>
 
 ---
 
-## 🏗 How to Configure
+## ✨ Why Context Bar?
 
-1. Open the **Command Palette** (`Ctrl+Shift+P`).
-2. Search for **"Context Bar: Configure Shortcuts"**.
-3. Add a new action and type a shortcut (like "Ctrl+S") into the command field to see suggestions.
-4. Pick a Codicon and you're done!
+VS Code has thousands of commands, but you probably only use a handful frequently. **Context Bar** turns the empty space in your editor title bar into a dynamic, context-aware dashboard for your most essential tasks.
 
-### Dynamic Rules
-You can set buttons to show only for specific files:
-- **Always Visible**: Visible for all editors.
-- **Language ID**: Only show for specific languages (e.g., `markdown`).
+No more memorizing complex key combinations. No more hunting through the Command Palette. Just **Pin, Click, and Code.**
+
+### 🚀 Key Features
+
+- **🎯 Context-Aware Buttons**: Buttons appear and disappear automatically based on the file extension you are currently editing (e.g., show a 'Run' button for `.py` files and a 'Preview' button for `.md`).
+- **🎨 Swiss Minimalism**: A clean, distraction-free configuration interface that matches the native VS Code aesthetic. No "shiny" clutter—just pure functionality.
+- **🔍 Smart Shortcut Search**: Don't know the Command ID? Just search by keybinding (like "Ctrl+S") or command name in our built-in builder.
+- **📦 30+ Native Icons**: Support for the full library of official VS Code Codicons for a seamless, "built-in" look.
+- **⚡ High Performance**: Zero UI lag. Context matches are pre-computed and cached for instantaneous tab switching.
 
 ---
 
-## 🔍 Examples
+## 🛠 Quick Start
 
-- **Markdown**: Pin `Ctrl+Shift+V` for a quick preview side-by-side.
-- **Python**: Pin `Shift+Enter` to run the current file in the terminal.
-- **General**: Pin `Alt+Shift+F` for a quick format button.
+1. **Open the Builder**: Type `Context Bar: Configure Shortcuts` in the Command Palette (`Ctrl+Shift+P`).
+2. **Add a Shortcut**: Click "+ Add Action" and type a familiar shortcut or command name to see suggestions.
+3. **Set the Scope**: Enter extensions like `md, py` or use `*` for a global button that never hides.
+4. **Save & Apply**: Hit "Save & Apply" and watch your icons appear instantly in the tab bar.
+
+---
+
+## 📖 Pro Tips
+
+- **Multi-Targeting**: List multiple extensions comma-separated (e.g., `ts, js, tsx`) to share a single button across languages.
+- **Individual Toggles**: Use the checkboxes in the builder to quickly enable or disable buttons without deleting their configuration.
+- **Edit JSON**: For power users, click the "Edit JSON" link in the header to modify your shortcuts directly in `settings.json`.
+
+---
+
+## 🤝 Contributing
+
+We love contributions! If you have ideas for new features or icons, feel free to open an issue or a pull request on our [GitHub Repository](https://github.com/rahuldhole/context-bar).
 
 ---
 
 <p align="center">
-  Your Shortcuts. One Click Away.
+  Made with ❤️ for the VS Code community.
 </p>

@@ -36,6 +36,8 @@ export function getWebviewContent(config: any): string {
         .header-actions { display: flex; gap: 20px; align-items: center; }
         .link-json { color: var(--vscode-textLink-foreground); cursor: pointer; font-size: 11px; opacity: 0.8; display: flex; align-items: center; gap: 4px; text-decoration: none; }
         .link-json:hover { opacity: 1; text-decoration: underline; }
+        .link-guide { color: var(--vscode-textLink-foreground); font-size: 11px; opacity: 0.8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .link-guide:hover { opacity: 1; text-decoration: underline; }
         
         .action-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         .action-row { border-bottom: 1px solid var(--vscode-panel-border); }
@@ -108,6 +110,10 @@ export function getWebviewContent(config: any): string {
                 <a class="link-json" @click="openJson">
                     <span class="codicon codicon-code"></span>
                     Edit JSON
+                </a>
+                <a class="link-guide" href="https://github.com/rahuldhole/context-bar#guide" target="_blank">
+                    <span class="codicon codicon-question"></span>
+                    Guide
                 </a>
             </div>
             <div>
