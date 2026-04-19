@@ -23,12 +23,12 @@
 
 Context Bar monitors your active editor in real-time. By evaluating custom `when` rules, it dynamically assigns your configured commands to a pool of pre-registered **Action Slots** in the editor's title bar.
 
-### 🖱 Easy Configuration (GUI)
+### 🖱 Premium Builder UI
 
-You don't need to manually edit JSON files. To configure your bar:
+You don't need to manually edit JSON files or learn complex context rules. To configure your bar:
 1. Open the **Command Palette** (`Ctrl+Shift+P`).
 2. Search for **"Context Bar: Configure Actions"**.
-3. Use the VS Code Settings UI to add, remove, or edit your actions with helpful tooltips and dropdowns.
+3. Use the **Context Bar Builder**—a custom-built GUI powered by Vue.js and Tailwind CSS—to pick icons and build rules visually.
 
 ### Example Rules
 

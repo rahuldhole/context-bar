@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { ContextManager } from './ContextManager';
 import { ActionEngine } from './ActionEngine';
+import { ConfigWebviewProvider } from './ConfigWebviewProvider';
 
 export function activate(context: vscode.ExtensionContext) {
   const contextManager = new ContextManager();
@@ -9,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
   // Register the configuration command
   context.subscriptions.push(
     vscode.commands.registerCommand('context-bar.configure', () => {
-      vscode.commands.executeCommand('workbench.action.openSettings', 'tabTools.actions');
+      ConfigWebviewProvider.show(context.extensionUri);
     })
   );
 
