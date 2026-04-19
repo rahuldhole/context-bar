@@ -148,7 +148,8 @@ export function getWebviewContent(config: any): string {
 
         <div class="footer">
             <button class="btn-text" @click="addAction">+ Add Action</button>
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <button class="btn-text" @click="openJson" style="opacity: 0.6; font-size: 11px;">Edit JSON</button>
                 <button class="btn-reset" @click="resetConfig">Reset to Defaults</button>
                 <button :class="['btn-main', { success: saveState === 'saved' }]" @click="save" :disabled="saveState === 'saving'">
                     {{ saveState === 'saved' ? 'Saved! ✅' : (saveState === 'saving' ? 'Saving...' : 'Save & Apply') }}
@@ -208,7 +209,11 @@ export function getWebviewContent(config: any): string {
                     }
                 };
 
-                return { actions, supportedIcons, pickerIdx, searchIdx, saveState, addAction, filteredSuggestions, applySuggestion, hideSearch, setIcon, save, resetConfig };
+                const openJson = () => {
+                    vscode.postMessage({ type: 'openSettings' });
+                };
+
+                return { actions, supportedIcons, pickerIdx, searchIdx, saveState, addAction, filteredSuggestions, applySuggestion, hideSearch, setIcon, save, resetConfig, openJson };
             }
         }).mount('#app');
     </script>

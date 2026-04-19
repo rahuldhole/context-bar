@@ -46,6 +46,9 @@ export class ConfigWebviewProvider {
             vscode.window.showInformationMessage('Context Bar reset to defaults!');
             ConfigWebviewProvider._update(panel);
             return;
+          case 'openSettings':
+            vscode.commands.executeCommand('workbench.action.openSettingsJson', 'tabTools.actions');
+            return;
         }
       },
       null
