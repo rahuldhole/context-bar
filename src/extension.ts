@@ -50,6 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
         const targetCommand = actionEngine.getActionForSlot(slotId);
         if (targetCommand) {
           try {
+            vscode.window.showInformationMessage(`Triggering: ${targetCommand}`);
             await vscode.commands.executeCommand(targetCommand);
             log.appendLine(`Executed: ${targetCommand}`);
           } catch (err) {

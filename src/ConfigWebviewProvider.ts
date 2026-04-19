@@ -41,6 +41,11 @@ export class ConfigWebviewProvider {
             await ConfigWebviewProvider._saveConfig(message.actions, message.enabled);
             vscode.window.showInformationMessage('Context Bar configuration saved!');
             return;
+          case 'reset':
+            await ConfigWebviewProvider._resetConfig();
+            vscode.window.showInformationMessage('Context Bar reset to defaults!');
+            ConfigWebviewProvider._update(panel);
+            return;
         }
       },
       null
@@ -57,5 +62,11 @@ export class ConfigWebviewProvider {
     const config = vscode.workspace.getConfiguration();
     await config.update('tabTools.actions', actions, vscode.ConfigurationTarget.Global);
     await config.update('context-bar.enabled', enabled, vscode.ConfigurationTarget.Global);
+  }
+
+  private static async _resetConfig() {
+    const config = vscode.workspace.getConfiguration();
+    await config.update('tabTools.actions', undefined, vscode.ConfigurationTarget.Global);
+    await config.update('context-bar.enabled', undefined, vscode.ConfigurationTarget.Global);
   }
 }

@@ -56,8 +56,18 @@ export function getWebviewContent(config: any): string {
         .command-cell { flex-grow: 1; }
         .ext-cell { width: 100px; opacity: 0.6; }
 
-        .btn-delete { opacity: 0.3; cursor: pointer; color: var(--vscode-errorForeground); background: none; border: none; }
-        .btn-delete:hover { opacity: 1; }
+        .btn-delete { 
+            opacity: 0.8; 
+            cursor: pointer; 
+            color: var(--vscode-descriptionForeground); 
+            background: none; 
+            border: none; 
+            display: flex; 
+            align-items: center; 
+            gap: 5px;
+            font-size: 11px;
+        }
+        .btn-delete:hover { opacity: 1; color: var(--vscode-errorForeground); }
 
         .icon-picker {
             position: absolute; top: 40px; left: 0; z-index: 100;
@@ -77,11 +87,13 @@ export function getWebviewContent(config: any): string {
         .suggestion:hover { background: var(--vscode-button-background); color: var(--vscode-button-foreground); }
         .suggestion span.cmd { opacity: 0.5; font-family: monospace; }
 
-        .footer { margin-top: 40px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-main { background: var(--vscode-button-background); color: var(--vscode-button-foreground); border: none; padding: 8px 24px; cursor: pointer; border-radius: 2px; }
+        .footer { margin-top: 40px; display: flex; gap: 20px; align-items: center; justify-content: space-between; }
+        .btn-main { background: var(--vscode-button-background); color: var(--vscode-button-foreground); border: none; padding: 8px 24px; cursor: pointer; border-radius: 2px; font-size: 13px; }
         .btn-main:hover { background: var(--vscode-button-hoverBackground); }
         .btn-main.success { background: #28a745 !important; color: white !important; }
-        .btn-text { background: none; border: none; color: var(--vscode-textLink-foreground); cursor: pointer; }
+        .btn-reset { background: transparent; border: 1px solid var(--vscode-button-background); color: var(--vscode-button-background); padding: 7px 16px; cursor: pointer; border-radius: 2px; font-size: 12px; }
+        .btn-reset:hover { background: var(--vscode-button-background); color: white; }
+        .btn-text { background: none; border: none; color: var(--vscode-textLink-foreground); cursor: pointer; padding: 0; font-size: 12px; }
     </style>
 </head>
 <body>
@@ -126,8 +138,9 @@ export function getWebviewContent(config: any): string {
                     <input v-model="action.exts" placeholder="md, py, *">
                 </td>
                 <td>
-                    <button class="btn-delete" @click="actions.splice(index, 1)">
+                    <button class="btn-delete" @click="actions.splice(index, 1)" title="Delete Action">
                         <span class="codicon codicon-trash"></span>
+                        <span>Delete</span>
                     </button>
                 </td>
             </tr>
@@ -135,6 +148,12 @@ export function getWebviewContent(config: any): string {
 
         <div class="footer">
             <button class="btn-text" @click="addAction">+ Add Action</button>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-reset" @click="resetConfig">Reset to Defaults</button>
+                <button :class="['btn-main', { success: saveState === 'saved' }]" @click="save" :disabled="saveState === 'saving'">
+                    {{ saveState === 'saved' ? 'Saved! ✅' : (saveState === 'saving' ? 'Saving...' : 'Save & Apply') }}
+                </button>
+            </div>
         </div>
     </div>
 
@@ -183,7 +202,13 @@ export function getWebviewContent(config: any): string {
                     }, 500);
                 };
 
-                return { actions, supportedIcons, pickerIdx, searchIdx, saveState, addAction, filteredSuggestions, applySuggestion, hideSearch, setIcon, save };
+                const resetConfig = () => {
+                    if (confirm('Are you sure you want to reset all shortcuts to defaults? This cannot be undone.')) {
+                        vscode.postMessage({ type: 'reset' });
+                    }
+                };
+
+                return { actions, supportedIcons, pickerIdx, searchIdx, saveState, addAction, filteredSuggestions, applySuggestion, hideSearch, setIcon, save, resetConfig };
             }
         }).mount('#app');
     </script>
