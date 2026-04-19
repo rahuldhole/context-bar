@@ -3,8 +3,10 @@ export interface Action {
   title: string;
   command: string;
   icon?: string;
-  when: string; // We'll support string expressions
+  when: string; 
   priority?: number;
+  enabled?: boolean; // Individual toggle
+  exts?: string;     // Comma separated extensions
 }
 
 export interface ActionContext {
@@ -15,7 +17,6 @@ export interface ActionContext {
   isUntitled: boolean;
   selectionEmpty: boolean;
   workspaceName?: string;
-  gitBranch?: string; // Optional future expansion
 }
 
 export interface SlotState {

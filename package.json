@@ -53,6 +53,7 @@
     },
     "commands": [
       { "command": "context-bar.configure", "title": "Context Bar: Configure Shortcuts", "category": "Context Bar" },
+      { "command": "context-bar.debugState", "title": "Context Bar: Debug Info", "category": "Context Bar" },
       
       { "command": "context-bar.slot.play.1", "title": "Trigger", "icon": "$(play)" },
       { "command": "context-bar.slot.play.2", "title": "Trigger", "icon": "$(play)" },

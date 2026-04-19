@@ -14,6 +14,12 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 
+  context.subscriptions.push(
+    vscode.commands.registerCommand('context-bar.debugState', () => {
+      vscode.window.showInformationMessage(`Context Bar Debug: ${actionEngine.getDebugInfo()}`);
+    })
+  );
+
   const icons = [
     'play', 'debug-start', 'eye', 'checklist', 'sync', 'trash', 'save', 'book', 'bug', 'zap', 
     'gear', 'search', 'refresh', 'edit', 'list-unordered', 'symbol-method', 'symbol-class', 
