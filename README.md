@@ -21,11 +21,18 @@
 
 ## 🛠 How It Works
 
-Context Bar uses a reactive engine to monitor your active editor. By evaluating custom `when` rules, it dynamically assigns your configured commands to a pool of pre-registered **Action Slots** in the editor's title bar.
+Context Bar monitors your active editor in real-time. By evaluating custom `when` rules, it dynamically assigns your configured commands to a pool of pre-registered **Action Slots** in the editor's title bar.
 
-### Example Configuration
+### 🖱 Easy Configuration (GUI)
 
-Add this to your `settings.json` to get started:
+You don't need to manually edit JSON files. To configure your bar:
+1. Open the **Command Palette** (`Ctrl+Shift+P`).
+2. Search for **"Context Bar: Configure Actions"**.
+3. Use the VS Code Settings UI to add, remove, or edit your actions with helpful tooltips and dropdowns.
+
+### Example Rules
+
+While you can use the GUI, here is how the logic looks under the hood:
 
 ```json
 {
