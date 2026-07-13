@@ -1,3 +1,7 @@
 theme: jekyll-theme-minimal
-title: Context Bar
-description: Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar.
+title: "Context Bar: Dynamic Shortcuts"
+description: "Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar. A VS Code extension."
+url: "http://context-bar.rahuldhole.com"
+image: "https://github.com/rahuldhole/context-bar/raw/main/assets/hero.png"
+twitter:
+  card: summary_large_image
