@@ -212,7 +212,7 @@ var ActionEngine = class {
     return this.slots.get(slotId)?.command;
   }
   getDebugInfo() {
-    const activeSlots = Array.from(this.keyCache.entries()).filter(([_, v]) => v).map(([k]) => k.replace("context-bar.slot.", "").replace(".visible", ""));
+    const activeSlots = Array.from(this.keyCache.entries()).filter(([, v]) => v).map(([k]) => k.replace("context-bar.slot.", "").replace(".visible", ""));
     return `Actions: ${this.actions.length}, Active Slots: [${activeSlots.join(", ")}], Current Ext: ${this.lastContext?.fileExt || "none"}, Lang: ${this.lastContext?.languageId || "none"}`;
   }
 };
@@ -485,7 +485,7 @@ var ConfigWebviewProvider = class _ConfigWebviewProvider {
   static viewType = "contextBarConfig";
   static _currentPanel;
   static show(extensionUri) {
-    const column = vscode3.window.activeTextEditor ? vscode3.window.activeTextEditor.viewColumn : void 0;
+    const column = vscode3.ViewColumn.Active;
     if (_ConfigWebviewProvider._currentPanel) {
       _ConfigWebviewProvider._currentPanel.reveal(column);
       return;
@@ -493,7 +493,7 @@ var ConfigWebviewProvider = class _ConfigWebviewProvider {
     const panel = vscode3.window.createWebviewPanel(
       _ConfigWebviewProvider.viewType,
       "Context Bar Builder",
-      column || vscode3.ViewColumn.One,
+      column,
       {
         enableScripts: true,
         retainContextWhenHidden: true,
