@@ -7,9 +7,7 @@ export class ConfigWebviewProvider {
   private static _currentPanel: vscode.WebviewPanel | undefined;
 
   public static show(extensionUri: vscode.Uri) {
-    const column = vscode.window.activeTextEditor
-      ? vscode.window.activeTextEditor.viewColumn
-      : undefined;
+    const column = vscode.ViewColumn.Active;
 
     if (ConfigWebviewProvider._currentPanel) {
       ConfigWebviewProvider._currentPanel.reveal(column);
@@ -19,7 +17,7 @@ export class ConfigWebviewProvider {
     const panel = vscode.window.createWebviewPanel(
       ConfigWebviewProvider.viewType,
       'Context Bar Builder',
-      column || vscode.ViewColumn.One,
+      column,
       {
         enableScripts: true,
         retainContextWhenHidden: true,
