@@ -2,7 +2,7 @@
   "name": "context-bar-rd",
   "displayName": "Context Bar: Dynamic Shortcuts",
   "description": "Trigger VS Code shortcuts and commands directly from your editor title bar",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "rahuldhole",
   "icon": "assets/icon.png",
   "author": {
