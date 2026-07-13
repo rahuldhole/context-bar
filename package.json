@@ -33,7 +33,8 @@
     "compile-web": "esbuild ./src/extension.ts --bundle --outfile=dist/web/extension.js --external:vscode --format=cjs --platform=browser",
     "watch-web": "esbuild ./src/extension.ts --bundle --outfile=dist/web/extension.js --external:vscode --format=cjs --platform=browser --watch",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
     "package": "npm run compile-web && npx vsce package",
     "publish": "npx vsce publish"
   },
@@ -430,9 +431,14 @@
     }
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^18.x",
     "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^8.63.0",
+    "@typescript-eslint/parser": "^8.63.0",
     "esbuild": "^0.28.1",
-    "typescript": "^4.9.5"
+    "eslint": "^10.7.0",
+    "typescript": "^4.9.5",
+    "typescript-eslint": "^8.63.0"
   }
 }

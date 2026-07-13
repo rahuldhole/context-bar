@@ -3,10 +3,10 @@ export interface Action {
   title: string;
   command: string;
   icon?: string;
-  when: string; 
+  when: string;
   priority?: number;
-  enabled?: boolean; // Individual toggle
-  exts?: string;     // Comma separated extensions
+  enabled?: boolean;
+  exts?: string;
 }
 
 export interface ActionContext {

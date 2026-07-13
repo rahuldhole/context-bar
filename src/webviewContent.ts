@@ -1,4 +1,6 @@
-export function getWebviewContent(config: any): string {
+import { Action } from './types';
+
+export function getWebviewContent(config: { actions: Action[]; enabled: boolean }): string {
     const supportedIcons = [
         'play', 'debug-start', 'eye', 'checklist', 'sync', 'trash', 'save', 'book', 'bug', 'zap', 
         'gear', 'search', 'refresh', 'edit', 'list-unordered', 'symbol-method', 'symbol-class', 
@@ -11,7 +13,7 @@ export function getWebviewContent(config: any): string {
         { label: 'Format (Shift+Alt+F)', command: 'editor.action.formatDocument' },
         { label: 'Preview (Ctrl+Shift+V)', command: 'markdown.showPreviewToSide' },
         { label: 'Toggle Sidebar (Ctrl+B)', command: 'workbench.action.toggleSidebarVisibility' },
-        { label: 'Terminal (Ctrl+\`)', command: 'workbench.action.terminal.toggleTerminal' }
+        { label: 'Terminal (Ctrl+`)', command: 'workbench.action.terminal.toggleTerminal' }
     ];
 
     return `<!DOCTYPE html>

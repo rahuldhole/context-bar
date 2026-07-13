@@ -132,7 +132,7 @@ export class ActionEngine {
 
   public getDebugInfo(): string {
     const activeSlots = Array.from(this.keyCache.entries())
-      .filter(([_, v]) => v)
+      .filter(([, v]) => v)
       .map(([k]) => k.replace('context-bar.slot.', '').replace('.visible', ''));
     return `Actions: ${this.actions.length}, Active Slots: [${activeSlots.join(', ')}], Current Ext: ${this.lastContext?.fileExt || 'none'}, Lang: ${this.lastContext?.languageId || 'none'}`;
   }
