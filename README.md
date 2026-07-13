@@ -1,4 +1,33 @@
+---
+title: "Context Bar: Dynamic Shortcuts"
+description: "Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar. A VS Code extension."
+keywords: "vscode, extension, context bar, shortcuts, productivity, development"
+openGraph:
+  type: website
+  url: "http://context-bar.rahuldhole.com"
+  title: "Context Bar: Dynamic Shortcuts for VS Code"
+  description: "Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar."
+  images:
+    - url: "https://github.com/rahuldhole/context-bar/raw/main/assets/hero.png"
+twitter:
+  cardType: summary_large_image
+---
+
 # Context Bar: Dynamic Shortcuts
+
+<meta name="title" content="Context Bar: Dynamic Shortcuts">
+<meta name="description" content="Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar.">
+<meta name="keywords" content="vscode, extension, context bar, shortcuts, productivity, development">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://context-bar.rahuldhole.com">
+<meta property="og:title" content="Context Bar: Dynamic Shortcuts for VS Code">
+<meta property="og:description" content="Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar.">
+<meta property="og:image" content="https://github.com/rahuldhole/context-bar/raw/main/assets/hero.png">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="http://context-bar.rahuldhole.com">
+<meta property="twitter:title" content="Context Bar: Dynamic Shortcuts for VS Code">
+<meta property="twitter:description" content="Elevate your workflow by pinning your favorite shortcuts exactly where your eyes land—the tab bar.">
+<meta property="twitter:image" content="https://github.com/rahuldhole/context-bar/raw/main/assets/hero.png">
 
 ![Context Bar Hero](https://github.com/rahuldhole/context-bar/raw/main/assets/hero.png)
 
