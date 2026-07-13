@@ -36,9 +36,15 @@ twitter:
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/visual-studio-marketplace/v/rahuldhole.context-bar-rd?style=flat-square&color=0078d7" alt="Marketplace Version">
-  <img src="https://img.shields.io/visual-studio-marketplace/i/rahuldhole.context-bar-rd?style=flat-square&color=0078d7" alt="Installs">
-  <img src="https://img.shields.io/github/license/rahuldhole/context-bar?style=flat-square&color=0078d7" alt="License">
+  <a href="https://marketplace.visualstudio.com/items?itemName=rahuldhole.context-bar-rd">
+    <img src="https://badgen.net/vs-marketplace/v/rahuldhole.context-bar-rd?color=007acc&label=Marketplace&icon=visualstudio" alt="Visual Studio Marketplace">
+  </a>
+  <a href="https://open-vsx.org/extension/RahulDhole/context-bar-rd">
+    <img src="https://badgen.net/open-vsx/v/RahulDhole/context-bar-rd?color=33b3b3&label=Open%20VSX&icon=visualstudio" alt="Open VSX Registry">
+  </a>
+  <a href="LICENSE">
+    <img src="https://badgen.net/badge/license/MIT/yellow" alt="License: MIT">
+  </a>
 </p>
 
 ---
